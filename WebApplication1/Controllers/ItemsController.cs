@@ -18,6 +18,8 @@ namespace MyApp.Controllers
         {
 
 
+
+
             var items = await _context.Items.ToListAsync();  // Check if this returns data
             return View(items);
         }
