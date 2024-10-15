@@ -1,4 +1,33 @@
-﻿@model List<MyApp.Models.Item>
+﻿@* @model list<myapp.models.item>
+
+@{
+    viewdata["title"] = "index";
+}
+
+<h3>index</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+       @foreach(var item in model)
+        {
+             <td>
+                <a asp-action= "edit" asp-route-id = "@item.id">edit</a>
+                <a asp-action="delete" asp-route-id="@item.id">delete</a>
+
+            </td>
+        }
+        </tr>
+
+    </tbody>
+</table> *@
+ @* @model List<MyApp.Models.Item> 
 
 @{
     ViewData["Title"] = "Index";
@@ -14,6 +43,42 @@
         </tr>
     </thead>
     <tbody>
-       
+        @foreach (var item in Model)  
+        {
+            <tr>
+                <td>@item.Name</td> 
+                <td>@item.Price.ToString("N2")</td>      
+                <td>
+                    <a asp-action="edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+ *@
+ @model List<MyApp.Models.Item>
+
+<h3>Index</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price.ToString("N2")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

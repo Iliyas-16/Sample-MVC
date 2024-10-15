@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MyApp.Models;
 
-public partial class Item
+public  class Item
 {
     [Key]
     public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 
-    public decimal price { get; set; }
+    public double Price { get; set; }
 }
