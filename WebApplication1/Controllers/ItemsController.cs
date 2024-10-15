@@ -16,10 +16,6 @@ namespace MyApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-
-
-
-
             var items = await _context.Items.ToListAsync();  // Check if this returns data
             return View(items);
         }
